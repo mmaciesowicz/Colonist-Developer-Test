@@ -1,3 +1,25 @@
+<!-- 
+  Code Thought Process
+
+  To get the checker board layout, I created a 2x2 grid using CSS "display: grid" on the container and positioned the first
+  button in the first box as well as the second button in the 4th box.
+
+  For the title font, I browsed dafont.com (https://www.dafont.com/cute-dino-2.font?fpp=200&text=QUICK+PLAY) until I found a similar looking font to that of the design screenshot, as I was
+  unable to find the font in the dev tools of the colonist.io website since it appears to be an older design.
+
+  I used a colour picker on the screenshots of the buttons to find the top and bottom colours of the buttons and made the
+  backgrounds a linear gradient with each of the respective colours.
+
+  To ensure the buttons are the same size, I made the heights of the rows to be the same, then used flexbox
+  to center the contents in the middle of each button.
+
+  The right button when clicked will call some API function: getAPIResult() while the left button will redirect the user
+  to a colonist room URL with a random 4 character room code.
+
+  Time to complete: ~4-4.5 hours.
+
+  -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
