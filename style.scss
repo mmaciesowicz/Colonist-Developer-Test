@@ -1,5 +1,9 @@
 $blue: #0084ff;
 $blue-darker: darken($blue, 5);
+$btn-light-orange: #efb70d;
+$btn-dark-orange: #f88933;
+$btn-light-green: #53dd03;
+$btn-dark-green: #5aae2c;
 
 body {
     background: #20262E;
@@ -7,48 +11,59 @@ body {
     font-family: Helvetica;
 }
 
-.button-left-top {
-    position: absolute;
-    margin-left: 20px;
-    margin-top: 20px;
-    width: 100px;
-    height: 50px;
-    background: #fff;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    text-align: center;
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
 
-    &:hover {
-        background: $blue-darker;
-        color: #fff;
-        margin-top: 20px;
-        width: 100px;
+    .btn {
+        color: white;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        text-align: center;
+    }
+
+    .button-left-top {
+        // position: absolute;
+        // margin-left: 20px;
+        // margin-top: 20px;
+        // width: 100px;
+        // height: 50px;
+        background: linear-gradient(to bottom, $btn-light-orange 0%, $btn-dark-orange 100%);
+        grid-row: 1;
+        grid-column: 1;
+
+        &:hover {
+            background: $blue-darker;
+            // color: #fff;
+            // margin-top: 20px;
+            // width: 100px;
+        }
+    }
+    
+    .button-right-bottom {
+        // position: absolute;
+        // margin-left: 170px;
+        // margin-top: 100px;
+        // width: 100px;
+        // height: 50px;
+        grid-row: 2;
+        grid-column: 2;
+        background: linear-gradient(to bottom, $btn-light-green 55%, $btn-dark-green 100%);
+    
+        // span {
+        //     margin: auto;
+        // }
+    
+        &:hover {
+            background: $blue-darker;
+            // color: #fff;
+            // margin-top: 100px;
+            // width: 100px;
+        }
     }
 }
 
-.button-right-bottom {
-    position: absolute;
-    margin-left: 170px;
-    margin-top: 100px;
-    width: 100px;
-    height: 50px;
-    background: #fff;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    text-align: center;
-
-    span {
-        margin: auto;
-    }
-
-    &:hover {
-        background: $blue-darker;
-        color: #fff;
-        margin-top: 100px;
-        width: 100px;
-    }
-}
