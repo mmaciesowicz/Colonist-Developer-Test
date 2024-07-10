@@ -1,0 +1,54 @@
+$blue: #0084ff;
+$blue-darker: darken($blue, 5);
+
+body {
+    background: #20262E;
+    padding: 20px;
+    font-family: Helvetica;
+}
+
+.button-left-top {
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 100px;
+    height: 50px;
+    background: #fff;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    text-align: center;
+
+    &:hover {
+        background: $blue-darker;
+        color: #fff;
+        margin-top: 20px;
+        width: 100px;
+    }
+}
+
+.button-right-bottom {
+    position: absolute;
+    margin-left: 170px;
+    margin-top: 100px;
+    width: 100px;
+    height: 50px;
+    background: #fff;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    text-align: center;
+
+    span {
+        margin: auto;
+    }
+
+    &:hover {
+        background: $blue-darker;
+        color: #fff;
+        margin-top: 100px;
+        width: 100px;
+    }
+}
