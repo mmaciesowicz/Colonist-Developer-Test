@@ -3,7 +3,7 @@
   src: url("font/Cute Dino.ttf") format("truetype");
 }
 body {
-  background: #20262E;
+  background: #0084ff;
   padding: 20px;
   font-family: Helvetica;
 }
@@ -18,6 +18,9 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0;
+  max-width: 1000px;
+  position: relative;
+  grid-auto-rows: 1fr;
 }
 .grid-container .btn {
   color: white;
@@ -25,9 +28,18 @@ body {
   border-width: 10px;
   text-align: center;
   max-width: 500px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 0px 0px 0.1rem black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .grid-container .btn .btn-text-top {
-  margin-top: 1em;
+  margin-top: 1.5em;
   margin-bottom: 0.5em;
   margin-left: 0.3em;
   margin-right: 0.3em;
@@ -43,11 +55,11 @@ body {
   margin-right: 0.3em;
 }
 .grid-container .btn .btn-text-bottom .btn-subtext {
-  font-size: calc(0.6rem + 1vw);
+  font-size: calc(0.75rem + 0.7vw);
   font-weight: 550;
 }
 .grid-container .btn:hover {
-  filter: drop-shadow(0 0 0.4rem white);
+  filter: drop-shadow(0 0 0.4rem #aff);
 }
 .grid-container .button-left-top {
   background: linear-gradient(to bottom, #efb70d 0%, #f88933 100%);
