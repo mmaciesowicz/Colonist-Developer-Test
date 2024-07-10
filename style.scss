@@ -4,6 +4,7 @@ $btn-light-orange: #efb70d;
 $btn-dark-orange: #f88933;
 $btn-light-green: #53dd03;
 $btn-dark-green: #5aae2c;
+$btn-hover: #aff;
 
 @font-face {
     font-family: 'CuteDino';
@@ -30,8 +31,6 @@ body {
     gap: 0;
     // Set max width to 1000px so that the buttons are beside eachother since max width for each is 500px
     max-width: 1000px;
-    // grid-auto-rows: minmax(5.5em, auto);
-    position: relative;
     // Set row sizes to be the same so buttons have the same height
     grid-auto-rows: 1fr;
     
@@ -42,10 +41,6 @@ body {
         border-width: 10px;
         text-align: center;
         max-width: 500px;
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         text-shadow: 0px 0px 0.1rem black;
 
         // Center contents in the smaller button
@@ -78,9 +73,8 @@ body {
         }
 
         &:hover {
-            filter: drop-shadow(0 0 0.4rem #aff);
+            filter: drop-shadow(0 0 0.4rem $btn-hover);
         }
-        
     }
 
 
@@ -96,7 +90,6 @@ body {
         grid-column: 2;
         background: linear-gradient(to bottom, $btn-light-green 55%, $btn-dark-green 100%);
         border: 1px solid $btn-dark-green;
-
     }
 }
 
