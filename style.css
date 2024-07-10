@@ -1,7 +1,17 @@
+@font-face {
+  font-family: "CuteDino";
+  src: url("font/Cute Dino.ttf") format("truetype");
+}
 body {
   background: #20262E;
   padding: 20px;
   font-family: Helvetica;
+}
+
+.unselectable {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */ /* IE10+/Edge */
+  user-select: none; /* Standard */
 }
 
 .grid-container {
@@ -17,6 +27,22 @@ body {
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
   text-align: center;
+}
+.grid-container .btn .btn-text-top {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+.grid-container .btn .btn-text-top .btn-title {
+  font-family: "CuteDino", sans-serif;
+  font-size: 1.5em;
+}
+.grid-container .btn .btn-text-bottom {
+  margin-bottom: 0;
+}
+.grid-container .btn .btn-text-bottom .btn-subtext {
+  font-size: 0.9em;
+  font-weight: 550;
 }
 .grid-container .button-left-top {
   background: linear-gradient(to bottom, #efb70d 0%, #f88933 100%);

@@ -5,10 +5,23 @@ $btn-dark-orange: #f88933;
 $btn-light-green: #53dd03;
 $btn-dark-green: #5aae2c;
 
+@font-face {
+    font-family: 'CuteDino';
+    src: url("font/Cute\ Dino.ttf") format("truetype");
+}
+$font-btn-title: 'CuteDino', sans-serif;
+
 body {
     background: #20262E;
     padding: 20px;
     font-family: Helvetica;
+}
+
+.unselectable {
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 }
 
 .grid-container {
@@ -24,7 +37,28 @@ body {
         border-bottom-right-radius: 20px;
         border-bottom-left-radius: 20px;
         text-align: center;
+        
+        .btn-text-top {
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+            text-transform: uppercase;
+
+            .btn-title {
+                font-family: $font-btn-title;
+                font-size: 1.5em;
+            }
+        }
+        
+        .btn-text-bottom {
+            margin-bottom: 0;
+            .btn-subtext {
+                font-size: 0.9em;
+                font-weight: 550;
+            }
+        }
+        
     }
+
 
     .button-left-top {
         // position: absolute;
