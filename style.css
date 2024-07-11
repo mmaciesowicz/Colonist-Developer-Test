@@ -35,21 +35,22 @@ body {
   align-items: center;
 }
 .grid-container .btn .btn-text-top {
-  margin-top: 1.5em;
+  margin-top: 1.2em;
   margin-bottom: 0.5em;
-  margin-left: 0.3em;
-  margin-right: 0.3em;
+  margin-left: 0.8em;
+  margin-right: 0.8em;
   text-transform: uppercase;
 }
 .grid-container .btn .btn-text-top .btn-title {
   font-family: "WickedMouse", sans-serif;
   font-size: calc(1.2rem + 1vw);
   letter-spacing: 0.1em;
+  line-height: 1.25em;
 }
 .grid-container .btn .btn-text-bottom {
-  margin-bottom: 1.5rem;
-  margin-left: 0.3em;
-  margin-right: 0.3em;
+  margin-bottom: 1.2em;
+  margin-left: 3vw;
+  margin-right: 3vw;
 }
 .grid-container .btn .btn-text-bottom .btn-subtext {
   font-size: calc(0.6rem + 0.7vw);
