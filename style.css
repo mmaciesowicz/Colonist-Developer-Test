@@ -65,13 +65,11 @@ body {
 }
 .grid-container .button-left-top {
   background: linear-gradient(to bottom, #efb70d 0%, #f88933 100%);
-  border: 1px solid #f88933;
   grid-row: 1;
   grid-column: 1;
 }
 .grid-container .button-right-bottom {
   grid-row: 2;
   grid-column: 2;
-  background: linear-gradient(to bottom, #53dd03 55%, #5aae2c 100%);
-  border: 1px solid #5aae2c;
+  background: radial-gradient(130% 120% at 50% 30%, #50c60a 20%, #44a908 100%);
 }/*# sourceMappingURL=style.css.map */

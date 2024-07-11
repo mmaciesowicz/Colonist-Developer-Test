@@ -92,7 +92,7 @@ body {
 
     .button-left-top {
         background: linear-gradient(to bottom, $btn-light-orange 0%, $btn-dark-orange 100%);
-        border: 1px solid $btn-dark-orange;
+        // border: 1px solid $btn-dark-orange;
         grid-row: 1;
         grid-column: 1;
     }
@@ -100,8 +100,9 @@ body {
     .button-right-bottom {
         grid-row: 2;
         grid-column: 2;
-        background: linear-gradient(to bottom, $btn-light-green 55%, $btn-dark-green 100%);
-        border: 1px solid $btn-dark-green;
+        background: radial-gradient(130% 120% at 50% 30%, darken(#54d00a,2) 20%, darken(#54d00a, 8) 100%);
+        
+        // border: 1px solid $btn-dark-green;
     }
 }
 
