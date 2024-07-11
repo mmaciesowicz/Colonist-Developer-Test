@@ -1,6 +1,8 @@
 @font-face {
-  font-family: "CuteDino";
-  src: url("font/Cute Dino.ttf") format("truetype");
+  font-family: "WickedMouse";
+  src: url("font/WickedMouse.ttf.woff") format("woff"), url("font/WickedMouse.ttf.svg#WickedMouse") format("svg"), url("font/WickedMouse.ttf.eot"), url("font/WickedMouse.ttf.eot?#iefix") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 body {
   background: #0084ff;
@@ -27,7 +29,6 @@ body {
   border-width: 10px;
   text-align: center;
   max-width: 500px;
-  text-shadow: 0px 0px 0.1rem black;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,8 +42,9 @@ body {
   text-transform: uppercase;
 }
 .grid-container .btn .btn-text-top .btn-title {
-  font-family: "CuteDino", sans-serif;
+  font-family: "WickedMouse", sans-serif;
   font-size: calc(1.2rem + 1vw);
+  letter-spacing: 0.1em;
 }
 .grid-container .btn .btn-text-bottom {
   margin-bottom: 1.5rem;
@@ -50,8 +52,12 @@ body {
   margin-right: 0.3em;
 }
 .grid-container .btn .btn-text-bottom .btn-subtext {
-  font-size: calc(0.75rem + 0.7vw);
-  font-weight: 550;
+  font-size: calc(0.6rem + 0.7vw);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.2;
+  color: white;
+  -webkit-text-stroke: 0.3px white;
+  letter-spacing: 0.04em;
 }
 .grid-container .btn:hover {
   filter: drop-shadow(0 0 0.4rem #aff);

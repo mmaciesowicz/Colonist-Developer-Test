@@ -7,10 +7,16 @@ $btn-dark-green: #5aae2c;
 $btn-hover: #aff;
 
 @font-face {
-    font-family: 'CuteDino';
-    src: url("font/Cute\ Dino.ttf") format("truetype");
+    font-family: 'WickedMouse';
+    src:url('font/WickedMouse.ttf.woff') format('woff'),
+        url('font/WickedMouse.ttf.svg#WickedMouse') format('svg'),
+        url('font/WickedMouse.ttf.eot'),
+        url('font/WickedMouse.ttf.eot?#iefix') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
 }
-$font-btn-title: 'CuteDino', sans-serif;
+
+$font-btn-title: 'WickedMouse', sans-serif;
 
 body {
     background: $blue;
@@ -41,7 +47,7 @@ body {
         border-width: 10px;
         text-align: center;
         max-width: 500px;
-        text-shadow: 0px 0px 0.1rem black;
+        // text-shadow: 0px 0px 0.1rem black;
 
         // Center contents in the smaller button
         display: flex;
@@ -59,6 +65,7 @@ body {
             .btn-title {
                 font-family: $font-btn-title;
                 font-size: calc(1.2rem + 1vw);
+                letter-spacing: 0.1em;
             }
         }
         
@@ -67,8 +74,12 @@ body {
             margin-left: 0.3em;
             margin-right: 0.3em;
             .btn-subtext {
-                font-size: calc(0.75rem + 0.7vw);
-                font-weight: 550;
+                font-size: calc(0.6rem + 0.7vw);
+                font-family: Arial, Helvetica, sans-serif;
+                line-height: 1.2; 
+                color: white;
+                -webkit-text-stroke: 0.3px white;
+                letter-spacing: 0.04em; 
             }
         }
 
