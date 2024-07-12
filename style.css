@@ -46,9 +46,7 @@ body {
   font-size: calc(1.2rem + 1vw);
   letter-spacing: 0.1em;
   line-height: 1.25em;
-}
-.grid-container .btn .btn-text-top .btn-title::after {
-  right: -0.1em;
+  transition: letter-spacing 0.2s ease-in-out;
 }
 .grid-container .btn .btn-text-bottom {
   margin-bottom: 1.2em;
@@ -64,8 +62,12 @@ body {
   letter-spacing: 0.04em;
 }
 .grid-container .btn:hover {
-  filter: drop-shadow(0 0 0.4rem #aff);
+  filter: drop-shadow(0 5px 3px #aff);
   border: 1px solid #fef;
+  margin: -1px;
+}
+.grid-container .btn:hover .btn-text-top .btn-title {
+  letter-spacing: 0.15em;
 }
 .grid-container .button-left-top {
   background: linear-gradient(to bottom, #efb70d 0%, #f88933 100%);

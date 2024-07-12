@@ -55,24 +55,20 @@ body {
         justify-content: center;
         align-items: center;
         
+
         .btn-text-top {
             margin-top: 1.2em;
             margin-bottom: 0.5em;
             margin-left: 0.8em;
             margin-right: 0.8em;
             text-transform: uppercase;
-            
+
             .btn-title {
                 font-family: $font-btn-title;
                 font-size: calc(1.2rem + 1vw);
                 letter-spacing: 0.1em;
                 line-height: 1.25em;
-                // padding-left: -0.05em;
-                // padding-right: -0.05em;
-
-                &::after {
-                    right: -0.1em;
-                }
+                transition: letter-spacing 0.2s ease-in-out;          
             }
         }
         
@@ -91,8 +87,14 @@ body {
         }
 
         &:hover {
-            filter: drop-shadow(0 0 0.4rem $btn-hover);
+            filter: drop-shadow(0 5px 3px $btn-hover);
             border: 1px solid #fef;
+            // offset the extra border space
+            margin: -1px;
+        }
+
+        &:hover .btn-text-top .btn-title {
+            letter-spacing: 0.15em;
         }
     }
 
