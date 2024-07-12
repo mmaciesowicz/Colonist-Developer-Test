@@ -1,9 +1,28 @@
-function buttonTwoAction() {
-	let apiResult = getAPIResult();
+async function buttonTwoAction() {
+	let apiResult = await getAPIResult();
+	console.log(apiResult);
+	let ids = apiResult.slice(0, 5).map(item => item.id);
+	console.log("First 5 room ids: " + ids);
 }
 
-function getAPIResult() {
-	return 'resultPlaceholder';
+async function getAPIResult() {
+	let apiResult =  await sendAPIRequest().then(data => {
+		return data;
+	  });
+	return apiResult.games;
+}
+
+async function sendAPIRequest() {
+	const url = 'https://colonist.io/api/game-list';
+
+	return await fetch(url)
+    .then(response => {
+		if (!response.ok) {
+        	throw new Error('Error retrieving response from server.');
+      	}
+      	return response.json(); // This returns a promise
+	})
+    .catch(error => console.error('Error:', error));
 }
 
 function buttonOneAction() {
