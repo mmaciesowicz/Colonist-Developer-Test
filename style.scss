@@ -22,8 +22,9 @@ $font-btn-title: 'Wicked Mouse', sans-serif;
 
 body {
     background: $blue;
-    padding: 20px;
+    padding: 28px;
     font-family: Helvetica;
+    margin: 0;
 }
 
 .unselectable {
@@ -60,8 +61,8 @@ body {
         .btn-text-top {
             margin-top: 1.2em;
             margin-bottom: 0.5em;
-            // margin-left: 0.8em;
-            // margin-right: 0.8em;
+            margin-left: max(calc(0.8em - 2vw),2px);
+            margin-right: max(calc(0.8em - 2vw),2px);
             text-transform: uppercase;
 
             .btn-title {

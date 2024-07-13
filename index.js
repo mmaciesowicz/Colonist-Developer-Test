@@ -55,7 +55,11 @@ function buttonMouseOver(e) {
 
 	// console.log(titleText.offsetWidth);
 	// console.log(e.offsetWidth);
-	if (Math.ceil(titleText.offsetWidth) + extraSpace <= Math.floor(e.offsetWidth)) {
+	const bodyPaddingTotal = parseFloat(window.getComputedStyle(document.body).getPropertyValue('padding-left')) + parseFloat(window.getComputedStyle(document.body).getPropertyValue('padding-right'));
+	
+	// console.log(titleText.offsetWidth + extraSpace + bodyPaddingTotal/2);
+	if (Math.ceil(titleText.offsetWidth) + extraSpace <= Math.floor(e.offsetWidth) && 
+	Math.ceil(titleText.offsetWidth) + extraSpace < screen.width/2 -bodyPaddingTotal) { /* Ensure the increased text does not fill up more than half of the screen so other button stays the same size */
 		titleText.style.letterSpacing = "6.5px";
 	}
 }
