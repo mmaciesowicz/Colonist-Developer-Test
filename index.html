@@ -4,12 +4,8 @@
   To get the checker board layout, I created a 2x2 grid using CSS "display: grid" on the container and positioned the first
   button in the first box as well as the second button in the 4th box.
 
-  For the title font, I browsed dafont.com (https://www.dafont.com/cute-dino-2.font?fpp=200&text=QUICK+PLAY) until I found a similar looking font to that of the design screenshot, as I was
-  unable to find the font in the dev tools of the colonist.io website since it appears to be an older design.
-  Note: font not rendering in jsfiddle.
-
-  I used a colour picker on the screenshots of the buttons to find the top and bottom colours of the buttons and made the
-  backgrounds a linear gradient with each of the respective colours.
+  For the title font, I cropped an image of the sample button and inserted it into a tool called "WhatTheFont" (https://www.myfonts.com/pages/whatthefont)
+  From there, I was able to find a similar looking font called "Xavier Sans Bold". Following that I searched for similar fonts the this one and found the Wicked Mouse font.
 
   To ensure the buttons are the same size, I made the heights of the rows to be the same, then used flexbox
   to center the contents in the middle of each button.
@@ -17,7 +13,16 @@
   The right button when clicked will call some API function: getAPIResult() while the left button will redirect the user
   to a colonist room URL with a random 4 character room code.
 
-  Time to complete: ~9-9.5 hours.
+  Using Dev Tools on the colonist.io lobby site, I was able to locate API calls to 'https://colonist.io/api/game-list'. From there, using a CORS Changer extension, I sent an API 
+  request and returned the data. Since these buttons are to be tested on colonist with only button functionality, the data is just displayed into the console for future use.
+
+  For a unique effect to add to this product, I added a text spreading effect on hover! I believe this makes the button look more inviting to click and lets the user know that
+  the button is clickable. The issue with spreading the font is that this expands the container divs and sometimes would make the second word jump to a new line. To try to resolve this 
+  edge case, I calculated how much excess space is needed to spread the text, then using the button width I determined if the spread will go to a new line or not. If it will go 
+  to a new line, I disabled the text-spread effect, but the user will still know that they are hovering due to the border and drop-shadow effects. For symmetry purposes, I believe it was best 
+  that either both buttons had the letter-spacing effect or neither, so if one was unable to space with skipping lines, the other one got disabled too. 
+
+  Time to complete: ~12 hours (includes searching web for fonts/api links, debugging and testing)
 
   -->
 
