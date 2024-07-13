@@ -60,17 +60,19 @@ body {
         .btn-text-top {
             margin-top: 1.2em;
             margin-bottom: 0.5em;
-            margin-left: 0.8em;
-            margin-right: 0.8em;
+            // margin-left: 0.8em;
+            // margin-right: 0.8em;
             text-transform: uppercase;
 
             .btn-title {
                 font-family: $font-btn-title;
                 font-size: calc(1.2rem + 1vw);
-                letter-spacing: 0.1em;
+                // font-size: 1.7em;
+                // letter-spacing: 0.1em;
+                letter-spacing: 3.5px;
                 line-height: 1.25em;
                 // title text moving transition on hover
-                transition: letter-spacing 0.2s ease-in-out;          
+                // transition: letter-spacing 0s ease-in-out;          
             }
         }
         
@@ -93,17 +95,19 @@ body {
             border: 1px solid #fef;
             // offset the extra border space
             margin: -1px;
+            
+            // .btn-text-top .btn-title {
+            //     // letter-spacing: 0.15em;
+            //     letter-spacing: 6.5px;
+            // }
         }
 
-        &:hover .btn-text-top .btn-title {
-            letter-spacing: 0.15em;
-        }
+        
     }
 
 
     .button-left-top {
         background: linear-gradient(to bottom, $btn-light-orange 0%, $btn-dark-orange 100%);
-        // border: 1px solid $btn-dark-orange;
         grid-row: 1;
         grid-column: 1;
     }
@@ -111,9 +115,7 @@ body {
     .button-right-bottom {
         grid-row: 2;
         grid-column: 2;
-        // background: radial-gradient(130% 120% at 50% 30%, darken(#54d00a,2) 20%, darken(#54d00a, 8) 100%);
         background: radial-gradient(130% 120% at 50% 30%, #54d00a 20%, darken(#54d00a, 6) 100%);
-        // border: 1px solid $btn-dark-green;
     }
 }
 

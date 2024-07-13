@@ -1,6 +1,8 @@
 var spans = document.querySelectorAll('span.btn-title');
 var titles = document.querySelectorAll('.btn-text-top');
+var btns = document.querySelectorAll('.btn');
 const letterSpacingDiff = 0.15;
+const letterSpacingDiffPix = 3;
 
 async function buttonTwoAction() {
 	let apiResult = await getAPIResult();
@@ -46,30 +48,30 @@ function buttonMouseOver(e) {
 	const titleText = e.querySelector('span.btn-title');
 	const textContainer = e.querySelector('.btn-text-top');
 
-	e.style.textShadow = "0px 0px 0.1rem black";
-	marginExtraSpace(-1,letterSpacingDiff, Array.from(e));
+	const numLetters =  titleText.innerText.length;
+	extraSpace = (letterSpacingDiffPix * (numLetters));
+	// console.log(numLetters);
+	// console.log(extraSpace);
+
+	// console.log(titleText.offsetWidth);
+	// console.log(e.offsetWidth);
+	if (Math.ceil(titleText.offsetWidth) + extraSpace <= Math.floor(e.offsetWidth)) {
+		titleText.style.letterSpacing = "6.5px";
+	}
 }
 
 function buttonMouseOut(e) {
 	const titleText = e.querySelector('span.btn-title');
 	const textContainer = e.querySelector('.btn-text-top');
 
-	e.style.textShadow = "none";
-	marginExtraSpace(1,letterSpacingDiff, Array.from(e));
-}
+	const numLetters =  titleText.innerText.length;
+	extraSpace = (letterSpacingDiffPix * (numLetters));
+	// console.log(numLetters);
+	// console.log(extraSpace);
 
-// Adds/Subtracts the margin difference from when text lettering is expanded to normal
-// sign is either 1/-1 and marginDifference is a number
-// spans is an array of the title(s) we want to change
-function marginExtraSpace(sign, marginDifference, spans) {
-	const numLetters = Array.from(spans).map(span => span.innerText.length);
-	var extraSpace = [];
-	// Total extra space = Letter spacing difference x (number of characters - 1)
-	for (let i=0; i<spans.length; i++) {
-		extraSpace[i] = (marginDifference * (numLetters[i] - 1))/2;
-		titles[i].style.marginLeft = String(sign * extraSpace[i]) + "em";
-		titles[i].style.marginRight =String(sign * extraSpace[i]) + "em";
+	// console.log(titleText.offsetWidth);
+	// console.log(e.offsetWidth);
+	if (Math.ceil(titleText.offsetWidth) - extraSpace <= Math.floor(e.offsetWidth)) {
+		titleText.style.letterSpacing = "3.5px";
 	}
 }
-
-marginExtraSpace(1,letterSpacingDiff, spans);
