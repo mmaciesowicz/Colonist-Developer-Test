@@ -6,16 +6,6 @@ $btn-light-green: #53dd03;
 $btn-dark-green: #5aae2c;
 $btn-hover: #aff;
 
-// @font-face {
-//     font-family: 'Wicked Mouse';
-//     src:url('font/WickedMouse.ttf.woff') format('woff'),
-//         url('font/WickedMouse.ttf.svg#WickedMouse') format('svg'),
-//         url('font/WickedMouse.ttf.eot'),
-//         url('font/WickedMouse.ttf.eot?#iefix') format('embedded-opentype'); 
-//     font-weight: normal;
-//     font-style: normal;
-// }
-
 @import url('https://fonts.cdnfonts.com/css/wicked-mouse');
 
 $font-btn-title: 'Wicked Mouse', sans-serif;
@@ -28,7 +18,7 @@ body {
 }
 
 .unselectable {
-    -webkit-user-select: none; /* Safari */        
+    -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+/Edge */
     user-select: none; /* Standard */
@@ -42,7 +32,6 @@ body {
     max-width: 1000px;
     // Set row sizes to be the same so buttons have the same height
     grid-auto-rows: 1fr;
-    
 
     .btn {
         color: white;
@@ -56,35 +45,31 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        
 
         .btn-text-top {
             margin-top: 1.2em;
             margin-bottom: 0.5em;
-            margin-left: max(calc(0.8em - 2vw),2px);
-            margin-right: max(calc(0.8em - 2vw),2px);
+            margin-left: max(calc(0.8em - 2vw), 2px);
+            margin-right: max(calc(0.8em - 2vw), 2px);
             text-transform: uppercase;
 
             .btn-title {
                 font-family: $font-btn-title;
                 font-size: calc(1.2rem + 1vw);
-                // font-size: 1.7em;
-                // letter-spacing: 0.1em;
                 letter-spacing: 3.5px;
                 line-height: 1.25em;
-                // title text moving transition on hover
-                // transition: letter-spacing 0s ease-in-out;          
             }
         }
-        
+
         .btn-text-bottom {
             margin-bottom: 1.2em;
             margin-left: 3vw;
             margin-right: 3vw;
+
             .btn-subtext {
                 font-size: calc(0.6rem + 0.7vw);
                 font-family: Arial, Helvetica, sans-serif;
-                line-height: 1.2; 
+                line-height: 1.2;
                 color: white;
                 -webkit-text-stroke: 0.3px white;
                 letter-spacing: 0.04em;
@@ -96,27 +81,18 @@ body {
             border: 1px solid #fef;
             // offset the extra border space
             margin: -1px;
-            
-            // .btn-text-top .btn-title {
-            //     // letter-spacing: 0.15em;
-            //     letter-spacing: 6.5px;
-            // }
         }
-
-        
     }
-
 
     .button-left-top {
         background: linear-gradient(to bottom, $btn-light-orange 0%, $btn-dark-orange 100%);
         grid-row: 1;
         grid-column: 1;
     }
-    
+
     .button-right-bottom {
         grid-row: 2;
         grid-column: 2;
         background: radial-gradient(130% 120% at 50% 30%, #54d00a 20%, darken(#54d00a, 6) 100%);
     }
 }
-
