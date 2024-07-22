@@ -25,13 +25,12 @@ class ColonistButton {
 }
 
 class ButtonHoverEffect extends ColonistButton {
-	#extraSpace;
 	constructor(buttonObject, hoverLetterSpacing = "6.5px") {
 		super(buttonObject);
 		this.hoverLetterSpacing = hoverLetterSpacing;
+		this.letterSpacingDifference = Math.abs(parseFloat(this.hoverLetterSpacing) - parseFloat(this.defaultLetterSpacing));
+		this.extraSpace = this.letterSpacingDifference * this.numLetters;
 		this.hasHoverEffect = this.shouldEnableHoverEffect();
-		this.letterSpacingDifference = Math.abs(parseFloat(this.hoverLetterSpacing) - parseFloat(super.defaultLetterSpacing));
-		this.#extraSpace = this.letterSpacingDifference * super.numLetters;
 	}
 
 	buttonAction() {
@@ -48,16 +47,16 @@ class ButtonHoverEffect extends ColonistButton {
 		this.titleText.style.letterSpacing = this.defaultLetterSpacing;
 	}
 
-	shouldEnableHoverEffect() {
-		return this.isLetterSpacingOnSameLine(this.titleText, this.buttonObject) && this.isLetterSpacingHalfContainerSize(titleText);
-	}
-
 	isLetterSpacingOnSameLine(textObject, textContainer) {
-		return Math.ceil(textObject.offsetWidth) + this.#extraSpace <= Math.floor(textContainer.offsetWidth);
+		return Math.ceil(textObject.offsetWidth) + this.extraSpace <= Math.floor(textContainer.offsetWidth);
 	}
 	
 	isLetterSpacingHalfScreenSize(textObject) {
-		return Math.ceil(textObject.offsetWidth) + this.#extraSpace < screen.width / 2 - bodyPaddingTotal;
+		return Math.ceil(textObject.offsetWidth) + this.extraSpace < screen.width / 2 - bodyPaddingTotal;
+	}
+
+	shouldEnableHoverEffect() {
+		return this.isLetterSpacingOnSameLine(this.titleText, this.buttonObject) && this.isLetterSpacingHalfScreenSize(this.titleText);
 	}
 }
 
@@ -106,33 +105,6 @@ class PlayOnlineButton extends ButtonHoverEffect {
 	}
 }
 
-// Function that determines whether the letter-spacing effect should take place on hover
-// function setupHoverEffect() {
-// 	for (let i = 0; i < btns.length; i++) {
-// 		const titleText = btns[i].querySelector('span.btn-title');
-// 		const numLetters = titleText.innerText.length;
-// 		extraSpace = (letterSpacingDiffPix * (numLetters));
-
-// 		if (isLetterSpacingOnSameLine(titleText, btns[i])
-// 			&& isLetterSpacingHalfContainerSize(titleText, screen)) { /* Ensure the increased lettering-space does not fill up more than half of the screen so other button stays the same size */
-// 			isButtonHoverEnabled = true;
-// 		}
-// 		else {
-// 			buttonHoverOn = false;
-// 			break;
-// 		}
-// 	}
-// }
-
-// Update letter-spacing effect capabilities
-// window.addEventListener("resize", () => {
-// 	setupHoverEffect();
-// });
-
-// window.onload = function () {
-// 	setupHoverEffect();
-// };
-
 const quickPlayButtonElement  = document.getElementById("quickPlayButton");
 const playOnlineButtonElement = document.getElementById("playOnlineButton");
 
@@ -144,11 +116,12 @@ Object.keys(buttonInstances).forEach(key => {
 		buttonInstance.buttonAction();
 	});
 	buttonInstance.buttonObject.addEventListener("mouseenter", function(event) {
-		// console.log("mouseover");
 		buttonInstance.buttonMouseEnter();
 	});
 	buttonInstance.buttonObject.addEventListener("mouseleave", function(event) {
-		// console.log("mouseleave");
 		buttonInstance.buttonMouseLeave();
+	});
+	window.addEventListener("resize", () => {
+		buttonInstance.hasHoverEffect = buttonInstance.shouldEnableHoverEffect();
 	});
   });
