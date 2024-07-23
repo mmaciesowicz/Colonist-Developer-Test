@@ -25,12 +25,24 @@ class ColonistButton {
 }
 
 class ButtonHoverEffect extends ColonistButton {
+	#hoverLetterSpacing;
+	#letterSpacingDifference;
+	#extraSpace;
+	#hasHoverEffect;
 	constructor(buttonObject, hoverLetterSpacing = "6.5px") {
 		super(buttonObject);
-		this.hoverLetterSpacing = hoverLetterSpacing;
-		this.letterSpacingDifference = Math.abs(parseFloat(this.hoverLetterSpacing) - parseFloat(this.defaultLetterSpacing));
-		this.extraSpace = this.letterSpacingDifference * this.numLetters;
-		this.hasHoverEffect = this.shouldEnableHoverEffect();
+		this.#hoverLetterSpacing = hoverLetterSpacing;
+		this.#letterSpacingDifference = Math.abs(parseFloat(this.#hoverLetterSpacing) - parseFloat(this.defaultLetterSpacing));
+		this.#extraSpace = this.#letterSpacingDifference * this.numLetters;
+		this.#hasHoverEffect = this.shouldEnableHoverEffect();
+	}
+
+	get hasHoverEffect() {
+		return this.#hasHoverEffect;
+	}
+
+	set hasHoverEffect(value) {
+		this.#hasHoverEffect = Boolean(value);
 	}
 
 	buttonOnClick() {
@@ -38,8 +50,8 @@ class ButtonHoverEffect extends ColonistButton {
     }
 
 	buttonMouseEnter() {
-		if (this.hasHoverEffect) {
-			this.titleText.style.letterSpacing = this.hoverLetterSpacing;
+		if (this.#hasHoverEffect) {
+			this.titleText.style.letterSpacing = this.#hoverLetterSpacing;
 		}
 	}
 	
@@ -48,12 +60,12 @@ class ButtonHoverEffect extends ColonistButton {
 	}
 
 	isLetterSpacingOnSameLine(textObject, textContainer) {
-		return Math.ceil(textObject.offsetWidth) + this.extraSpace <= Math.floor(textContainer.offsetWidth);
+		return Math.ceil(textObject.offsetWidth) + this.#extraSpace <= Math.floor(textContainer.offsetWidth);
 	}
 	
 	// used to ensure both buttons remain taking up equal amount of width on screen
 	isLetterSpacingHalfScreenSize(textObject) {
-		return Math.ceil(textObject.offsetWidth) + this.extraSpace < screen.width / 2 - bodyPaddingTotal;
+		return Math.ceil(textObject.offsetWidth) + this.#extraSpace < screen.width / 2 - bodyPaddingTotal;
 	}
 
 	shouldEnableHoverEffect() {
