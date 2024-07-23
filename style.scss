@@ -2,9 +2,10 @@ $blue: #0084ff;
 $blue-darker: darken($blue, 5);
 $btn-light-orange: #efb70d;
 $btn-dark-orange: #f88933;
-$btn-light-green: #53dd03;
-$btn-dark-green: #5aae2c;
-$btn-hover: #aff;
+$btn-light-green: #54d00a;
+$btn-dark-green: darken(#54d00a, 6);
+$btn-dropshadow: #aff;
+$btn-border: #fef;
 
 @import url('https://fonts.cdnfonts.com/css/wicked-mouse');
 
@@ -77,8 +78,8 @@ body {
         }
 
         &:hover {
-            filter: drop-shadow(0 5px 3px $btn-hover);
-            border: 1px solid #fef;
+            filter: drop-shadow(0 5px 3px $btn-dropshadow);
+            border: 1px solid $btn-border;
             // offset the extra border space
             margin: -1px;
         }
@@ -93,6 +94,6 @@ body {
     .button-right-bottom {
         grid-row: 2;
         grid-column: 2;
-        background: radial-gradient(130% 120% at 50% 30%, #54d00a 20%, darken(#54d00a, 6) 100%);
+        background: radial-gradient(130% 120% at 50% 30%, $btn-light-green 20%, $btn-dark-green 100%);
     }
 }

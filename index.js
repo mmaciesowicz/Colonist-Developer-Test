@@ -24,7 +24,7 @@ class ColonistButton {
 	}
 }
 
-class ButtonHoverEffect extends ColonistButton {
+class ButtonLetterHoverEffect extends ColonistButton {
 	#hoverLetterSpacing;
 	#letterSpacingDifference;
 	#extraSpace;
@@ -73,7 +73,7 @@ class ButtonHoverEffect extends ColonistButton {
 	}
 }
 
-class QuickPlayButton extends ButtonHoverEffect {
+class QuickPlayButton extends ButtonLetterHoverEffect {
 	constructor(buttonObject) {
 		super(buttonObject);
 	}
@@ -86,7 +86,7 @@ class QuickPlayButton extends ButtonHoverEffect {
 	}
 }
 
-class PlayOnlineButton extends ButtonHoverEffect {
+class PlayOnlineButton extends ButtonLetterHoverEffect {
 	constructor(buttonObject) {
 		super(buttonObject);
 	}
@@ -139,7 +139,7 @@ Object.keys(buttonInstances).forEach(key => {
 		buttonInstance.hasHoverEffect = buttonInstances.every((buttonInstance) => {
 			return buttonInstance.shouldEnableHoverEffect();
 		})};
-
+	globalShouldEnableHoverEffect();
 	window.addEventListener("resize", () => {
 		globalShouldEnableHoverEffect();
 	});
