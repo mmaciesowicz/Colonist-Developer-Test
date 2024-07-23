@@ -123,8 +123,7 @@ const playOnlineButtonElement = document.getElementById("playOnlineButton");
 
 const buttonInstances = [new QuickPlayButton(quickPlayButtonElement), new PlayOnlineButton(playOnlineButtonElement)];
 
-Object.keys(buttonInstances).forEach(key => {
-	const buttonInstance = buttonInstances[key];
+buttonInstances.forEach(buttonInstance => {
 	buttonInstance.buttonObject.addEventListener("click", function() {
 		buttonInstance.buttonOnClick();
 	});
