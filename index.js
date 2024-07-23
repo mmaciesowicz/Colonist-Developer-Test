@@ -11,7 +11,7 @@ class ColonistButton {
 		this.numLetters = this.titleText.innerText.length;
 		this.defaultLetterSpacing = defaultLetterSpacing;
 	}
-	buttonAction() {
+	buttonOnClick() {
         throw new Error("This method should be overridden by subclasses");
     }
 
@@ -33,7 +33,7 @@ class ButtonHoverEffect extends ColonistButton {
 		this.hasHoverEffect = this.shouldEnableHoverEffect();
 	}
 
-	buttonAction() {
+	buttonOnClick() {
         throw new Error("This method should be overridden by subclasses");
     }
 
@@ -51,6 +51,7 @@ class ButtonHoverEffect extends ColonistButton {
 		return Math.ceil(textObject.offsetWidth) + this.extraSpace <= Math.floor(textContainer.offsetWidth);
 	}
 	
+	// used to ensure both buttons remain taking up equal amount of width on screen
 	isLetterSpacingHalfScreenSize(textObject) {
 		return Math.ceil(textObject.offsetWidth) + this.extraSpace < screen.width / 2 - bodyPaddingTotal;
 	}
@@ -64,7 +65,7 @@ class QuickPlayButton extends ButtonHoverEffect {
 	constructor(buttonObject) {
 		super(buttonObject);
 	}
-	buttonAction() {
+	buttonOnClick() {
 		window.location.href = "https://colonist.io/#" + this.generateAlphanumericRoomID();
 	}
 	
@@ -77,7 +78,7 @@ class PlayOnlineButton extends ButtonHoverEffect {
 	constructor(buttonObject) {
 		super(buttonObject);
 	}
-	async buttonAction() {
+	async buttonOnClick() {
 		let apiResult = await this.getAPIResult();
 		console.log(apiResult);
 		let ids = apiResult.slice(0, 5).map(item => item.id);
@@ -112,16 +113,22 @@ const buttonInstances = [new QuickPlayButton(quickPlayButtonElement), new PlayOn
 
 Object.keys(buttonInstances).forEach(key => {
 	const buttonInstance = buttonInstances[key];
-	buttonInstance.buttonObject.addEventListener("click", function(event) {
-		buttonInstance.buttonAction();
+	buttonInstance.buttonObject.addEventListener("click", function() {
+		buttonInstance.buttonOnClick();
 	});
-	buttonInstance.buttonObject.addEventListener("mouseenter", function(event) {
+	buttonInstance.buttonObject.addEventListener("mouseenter", function() {
 		buttonInstance.buttonMouseEnter();
 	});
-	buttonInstance.buttonObject.addEventListener("mouseleave", function(event) {
+	buttonInstance.buttonObject.addEventListener("mouseleave", function() {
 		buttonInstance.buttonMouseLeave();
 	});
+
+	var globalShouldEnableHoverEffect = function() {
+		buttonInstance.hasHoverEffect = buttonInstances.every((buttonInstance) => {
+			return buttonInstance.shouldEnableHoverEffect();
+		})};
+
 	window.addEventListener("resize", () => {
-		buttonInstance.hasHoverEffect = buttonInstance.shouldEnableHoverEffect();
+		globalShouldEnableHoverEffect();
 	});
-  });
+});
